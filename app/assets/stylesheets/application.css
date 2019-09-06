@@ -1,0 +1,193 @@
+/* ================= */
+/*  IMPORTED FONTS   */
+/* ================= */
+@import url('https://fonts.googleapis.com/css?family=Barlow:500|Nova+Round|Overpass:300,400|Raleway:300,400&display=swap');
+
+/* ================= */
+/*     VARIABLES     */
+/* ================= */
+:root {
+  /* fonts */
+  --title-font: 'Barlow';
+  --main-font: 'Overpass';
+  --accent-font: 'Raleway';
+  --header-font: 'Nova Round';
+  /* colors */
+  --dark-gray: #4d4d4d;
+  --golden: #FFB66B;
+  --orange: #E89261;
+  --peach: #FF9578;
+  --grapefruit: #E86B61;
+  --pink: #FF6B91;
+  --lime: #ACFF6C;
+}
+
+/* ================= */
+/*      GENERAL      */
+/* ================= */
+
+body {
+  background: var(--dark-gray);
+  font-family: var(--main-font);
+  padding: 0;
+  margin: 0;
+  color: whitesmoke;
+}
+
+h1 {
+    font-family: var(--title-font);
+    text-align: center;
+    color: whitesmoke;
+    font-size: 12vw;
+	margin: 0;
+}
+
+/* ================= */
+/*   MAIN CONTAINER  */
+/* ================= */
+.main-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin: 0 auto;
+
+}
+
+/* ================= */
+/*       Nav         */
+/* ================= */
+
+nav {
+padding: 0px 20px;
+align-self: center;
+text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.view-trends {
+  width: 100%;
+  font-size: 30px;
+  padding: 10px;
+  text-transform: uppercase;
+  color: var(--grapefruit);
+  font-family: var(--accent-font);
+  margin: 10px auto;
+  transition: 0.3s ease-in-out;
+  border-radius: 5px;
+}
+.view-trends:hover {
+  color: var(--golden);
+  cursor: pointer;
+}
+
+.add-trend {
+  width: 100%;
+  font-size: 30px;
+  padding: 10px;
+  text-transform: uppercase;
+  color: var(--lime);
+  font-family: var(--accent-font);
+  margin: 10px auto;
+  transition: 0.3s ease-in-out;
+  border-radius: 5px;
+}
+.add-trend:hover {
+  color: var(--golden);
+  cursor: pointer;
+}
+
+.arrow {
+	font-size: 50px;
+	font-weight: bold;
+	padding: 5px;
+}
+
+/* ================= */
+/*       MAIN        */
+/* ================= */
+main {
+  width: 100%
+  min-width: 300px;
+}
+main > h1 {
+  font-family: var(--header-font);
+  font-size: 2em;
+  color: var(--golden);
+  border-bottom: 3px solid var(--grapefruit);
+  width: 80%;
+  margin: 30px auto;
+  text-transform: uppercase;
+}
+
+/* ================= */
+/*       FORM        */
+/* ================= */
+form {
+  padding: 20px;
+  text-align: center;
+}
+label {
+  display: inline-block;
+  width: 40%;
+  margin: 10px;
+  text-align: left;
+  text-transform: uppercase;
+  font-family: var(--header-font);
+  color: var(--golden);
+}
+input[type="text"] {
+  display: inline-block;
+  padding: 10px;
+  width: 90%;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+textarea {
+  width: 90%;
+  display: block;
+  resize: none;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 10px;
+}
+#post-form {
+  width: 90%;
+}
+input[type="submit"] {
+  display: block;
+  border: 0;
+  background: var(--grapefruit);
+  color: white;
+  font-family: var(--accent-font);
+  font-weight: 700;
+  font-size: 1em;
+  text-transform: uppercase;
+  width: 90%;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 10px auto 0px auto;
+}
+input[type="submit"]:hover {
+  background-color: var(--golden);
+  color: var(--dark-gray);
+  cursor: pointer;
+}
+
+/* ================= */
+/*      MAP 	     */
+/* ================= */
+
+path {
+  pointer-events: all;
+}
+path:hover {
+  opacity: 0.50;
+  cursor: pointer;
+}
