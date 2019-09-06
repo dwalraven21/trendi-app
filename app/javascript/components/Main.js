@@ -38,7 +38,7 @@ class Main extends React.Component {
   handleCreate = (createData) => {
     fetch('/api/posts', {
       body: JSON.stringify(createData),
-      method: 'Post',
+      method: 'POST',
       headers: {
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
@@ -120,11 +120,11 @@ class Main extends React.Component {
 			      postData={postData}
 			      handleView={this.props.handleView}
 			      handleDelete={this.handleDelete}
+				  handleUpdate={this.handleUpdate}
 			    />
 			  ))
 			  : <Form
 			      handleCreate={this.handleCreate}
-			      handleUpdate={this.handleUpdate}
 			      formInputs={this.props.formInputs}
 			      view={this.props.view}
 			    />
