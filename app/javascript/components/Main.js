@@ -114,6 +114,7 @@ class Main extends React.Component {
 
 			{ this.props.view.page === 'viewTrends'?
 			this.state.posts.map((postData, index) => (
+
 			    <Post
 			      key={postData.id}
 			      postData={postData}

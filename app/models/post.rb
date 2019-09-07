@@ -40,7 +40,7 @@ end
   # ===============================
   # index
   def self.all
-    results = DB.exec("SELECT * FROM posts ORDER BY id ASC;")
+    results = DB.exec("SELECT * FROM posts ORDER BY rank DESC;")
     return results.map do |result|
       {
           "id" => result["id"].to_i,
