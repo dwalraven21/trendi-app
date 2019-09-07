@@ -60,11 +60,13 @@ class Main extends React.Component {
   }
   // updates a post's rank
 	handleRankChange = (index, delta) => {
+		console.log(index);
 		this.setState( prevState => {
+			console.log(prevState);
 			// new array - copy of previous posts array
 			const updatedPosts = [ ...prevState.posts ];
 			// a copy of the post we are targeting
-			const updatedPost = { ...updatedPost[index] };
+			const updatedPost = updatedPosts[index];
 
 			// Update the target post's rank
 			updatedPost.rank += delta;
