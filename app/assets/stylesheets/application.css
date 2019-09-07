@@ -146,7 +146,7 @@ label {
 input[type="text"], select {
   display: inline-block;
   padding: 10px;
-  width: 90%;
+  width: 95%;
   border: 1px solid whitesmoke;
   border-radius: 5px;
   margin-top: 10px;
@@ -154,7 +154,7 @@ input[type="text"], select {
 
 select {
 	height: 40px;
-	width: 95%;
+	width: 100%;
 }
 
 #post-form {

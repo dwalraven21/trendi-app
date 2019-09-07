@@ -97,10 +97,6 @@ class Main extends React.Component {
 		.catch(err => console.log(err))
 	}
 
-	mapHandler = (event) => {
-		alert(event.target.dataset.name);
-	};
-
 	// ==============
 	// LIFE CYCLES
 	// ==============
