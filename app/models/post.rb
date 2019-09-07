@@ -19,9 +19,9 @@ end
   # create post
   DB.prepare("create_post",
     <<-SQL
-      INSERT INTO posts (name, age, location, image, rank)
-      VALUES ($1, $2, $3, $4, $5)
-      RETURNING id, name, age, location, image, rank;
+      INSERT INTO posts (name, location, image, rank)
+      VALUES ($1, $2, $3, $4)
+      RETURNING id, name, location, image, rank;
     SQL
   )
 
@@ -29,9 +29,9 @@ end
   DB.prepare("update_post",
     <<-SQL
       UPDATE posts
-      SET name = $2, age = $3, location = $4, image = $5, rank = $6
+      SET name = $2, location = $3, image = $4, rank = $5
       WHERE id = $1
-      RETURNING id, name, age, location, image, rank;
+      RETURNING id, name, location, image, rank;
     SQL
   )
 
@@ -45,7 +45,6 @@ end
       {
           "id" => result["id"].to_i,
           "name" => result["name"],
-		  "age" => result["age"].to_i,
           "location" => result["location"],
           "image" => result["image"],
 		  "rank" => result["rank"].to_i
@@ -62,7 +61,6 @@ end
       return {
 		"id" => result["id"].to_i,
 	 	"name" => result["name"],
-	 	"age" => result["age"].to_i,
 	 	"location" => result["location"],
 	 	"image" => result["image"],
 	 	"rank" => result["rank"].to_i
@@ -77,11 +75,10 @@ end
 
   # create
   def self.create(opts)
-    results = DB.exec_prepared("create_post", [opts["name"], opts["age"], opts["location"], opts["image"], opts["rank"]])
+    results = DB.exec_prepared("create_post", [opts["name"], opts["location"], opts["image"], opts["rank"]])
     return {
 	  "id" => result["id"].to_i,
   	  "name" => result["name"],
-  	  "age" => result["age"].to_i,
   	  "location" => result["location"],
   	  "image" => result["image"],
   	  "rank" => result["rank"].to_i
@@ -96,11 +93,10 @@ end
 
   # update
   def self.update(id, opts)
-    results = DB.exec_prepared("update_post", [id, opts["name"], opts["age"], opts["location"], opts["image"], opts["rank"]])
+    results = DB.exec_prepared("update_post", [id, opts["name"], opts["location"], opts["image"], opts["rank"]])
     return {
 		"id" => result["id"].to_i,
     	"name" => result["name"],
-    	"age" => result["age"].to_i,
     	"location" => result["location"],
     	"image" => result["image"],
     	"rank" => result["rank"].to_i

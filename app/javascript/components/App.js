@@ -27,7 +27,6 @@ class App extends React.Component {
 		  formInputs: {
 			id: null,
 		    name: null,
-			age: null,
 		    location: null,
 		    image: null,
 		    rank: null
@@ -43,7 +42,6 @@ class App extends React.Component {
 	    let formInputs = {
 			id: null,
 		    name: '',
-		    age: '',
 		    location: '',
 			image: '',
 			rank: ''
