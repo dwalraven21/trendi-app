@@ -33,6 +33,7 @@ body {
   padding: 0;
   margin: 0;
   color: whitesmoke;
+  text-align: center;
 }
 
 h1 {
@@ -129,10 +130,12 @@ main > h1 {
 /* ================= */
 form {
   padding: 20px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-flow: column wrap;
 }
 label {
-  display: inline-block;
+  text-align: center;
   width: 40%;
   margin: 10px;
   text-align: left;
@@ -140,7 +143,7 @@ label {
   font-family: var(--header-font);
   color: var(--golden);
 }
-input[type="text"] {
+input[type="text"], select {
   display: inline-block;
   padding: 10px;
   width: 90%;
@@ -148,15 +151,12 @@ input[type="text"] {
   border-radius: 5px;
   margin-top: 10px;
 }
-textarea {
-  width: 90%;
-  display: block;
-  resize: none;
-  border: 1px solid whitesmoke;
-  border-radius: 5px;
-  padding: 15px;
-  margin-top: 10px;
+
+select {
+	height: 40px;
+	width: 95%;
 }
+
 #post-form {
   width: 90%;
 }
@@ -169,7 +169,8 @@ input[type="submit"] {
   font-weight: 700;
   font-size: 1em;
   text-transform: uppercase;
-  width: 90%;
+  width: 40%;
+  min-width: 300px;
   border-radius: 5px;
   padding: 10px;
   box-sizing: border-box;
@@ -199,6 +200,7 @@ path:hover {
 
 article {
   display: flex;
+  align-items: center;
   text-align: center;
   width: 80%;
   padding: 10px;
@@ -224,7 +226,7 @@ box-shadow: -15px -15px var(--golden);
 	color: #51ba00;
 	cursor: pointer;
 	font-family: var(--main-font);
-	font-size: 30px;
+	font-size: 50px;
 	width: 25%;
 	margin: 10px auto;
 }
@@ -235,7 +237,7 @@ box-shadow: -15px -15px var(--golden);
 	color: #cc4d43;
 	cursor: pointer;
 	font-family: var(--main-font);
-	font-size: 30px;
+	font-size: 50px;
 	width: 25%;
 	margin: 10px auto;
 }

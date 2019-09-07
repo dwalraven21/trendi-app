@@ -8,6 +8,8 @@ import React from 'react'
 // COMPONENT CLASS
 // =============================
 class Post extends React.Component {
+
+
   // ==============
   // RENDER
   // ==============
@@ -16,13 +18,13 @@ class Post extends React.Component {
 		<article>
 		<div className="post-options">
 		  <ul className="vote">
-			<li className="upvote" onClick={() => {this.props.handleUpvote(this.props.postData.id)}}>&#9650;</li>
+			<li className="upvote" onClick={() => {this.props.handleRankChange(this.props.postData.id, 1)}}>&#9650;</li>
 			{this.props.postData.rank > 0 ?
 				<li className="upvote">{this.props.postData.rank}
 				</li>
 				:<li className="downvote">{this.props.postData.rank}
 				</li>}
-			<li className="downvote" onClick={() => {this.props.handleDownvote(this.props.postData.id)}}>&#9660;</li>
+			<li className="downvote" onClick={() => {this.props.handleRankChange(this.props.postData.id, -1)}}>&#9660;</li>
 		  </ul>
 		</div>
 		<div className="post-info">
