@@ -77,7 +77,10 @@ class App extends React.Component {
       <div className="large-container">
         <Header/>
 		<div className="main-container">
-			<Nav handleView={this.handleView}/>
+			<Nav
+			view={this.state.view}
+			handleView={this.handleView}
+			/>
 			<Main
 				view={this.state.view}
 		        handleView={this.handleView}

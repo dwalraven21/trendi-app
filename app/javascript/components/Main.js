@@ -113,8 +113,9 @@ class Main extends React.Component {
 		return (
 			<main>
 			<h1>{this.props.view.pageTitle}</h1>
-			{ this.props.view.page === 'viewTrends'
-			? this.state.posts.map((postData) => (
+			
+			{ this.props.view.page === 'viewTrends'?
+			this.state.posts.map((postData) => (
 			    <Post
 			      key={postData.id}
 			      postData={postData}
