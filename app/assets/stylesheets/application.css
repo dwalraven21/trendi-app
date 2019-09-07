@@ -201,6 +201,7 @@ path:hover {
 article {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   text-align: center;
   width: 80%;
   padding: 10px;
