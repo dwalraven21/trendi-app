@@ -54,15 +54,19 @@ h1 {
   flex-flow: column;
   justify-content: center;
   margin: 0 auto;
-
 }
-
+/* ================= */
+/*       Header      */
+/* ================= */
+header {
+    margin: 20px 0 50px 0;
+}
 /* ================= */
 /*       Nav         */
 /* ================= */
 
 nav {
-padding: 0px 20px;
+margin-bottom: 60px;
 align-self: center;
 text-align: center;
 }
