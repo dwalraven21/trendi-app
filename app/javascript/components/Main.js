@@ -58,11 +58,27 @@ class Main extends React.Component {
     })
     .catch(err => console.log(err))
   }
+
+  handleUpdate = (updateData) => {
+	  fetch(`/api/posts/${updateData.id}`, {
+		  body: JSON.stringify(updateData),
+		  method: 'PUT',
+		  headers: {
+			'Accept': 'application/json, text/plain, */*',
+			'Content-Type': 'application/json'
+		  }
+	  })
+	  .then(updatedPost => {
+		// call this.fetchPosts to show the updated post immediately
+		this.fetchPosts()
+	  })
+	  .catch(err => console.log(err))
+  }
+
   // updates a post's rank
 	handleRankChange = (index, delta) => {
-		console.log(index);
 		this.setState( prevState => {
-			console.log(prevState);
+			// console.log(prevState);
 			// new array - copy of previous posts array
 			const updatedPosts = [ ...prevState.posts ];
 			// a copy of the post we are targeting
@@ -74,12 +90,17 @@ class Main extends React.Component {
 			// Update the posts array with the target post's new rank
 			updatedPosts[index] = updatedPost;
 
+			this.handleUpdate(updatedPost);
+
 			// Update the new posts state without mutating the original state
 			return {
 				posts: updatedPosts
+
 			}
 		})
 	}
+
+
 
 	// deletes a post
 	handleDelete = (id) => {
@@ -124,6 +145,7 @@ class Main extends React.Component {
 			      handleDelete={this.handleDelete}
 				  index={index}
 				  handleRankChange={this.handleRankChange}
+				  handleUpdate={this.handleUpdate}
 			    />
 			  ))
 			  : <Form
