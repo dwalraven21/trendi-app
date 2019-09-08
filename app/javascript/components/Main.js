@@ -157,7 +157,7 @@ class Main extends React.Component {
 			<h1>{this.props.view.pageTitle}</h1>
 			{ this.props.view.page === 'viewTrends'?
 			<div className="App">
-				<USAMap onClick={this.mapHandler} />
+				<USAMap onClick={this.mapHandler}/>
 			</div>
 			: null}
 
