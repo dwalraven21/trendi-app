@@ -75,13 +75,13 @@ end
 
   # create
   def self.create(opts)
-    results = DB.exec_prepared("create_post", [opts["name"], opts["location"], opts["image"], opts["rank"]])
-    return {
-	  "id" => result["id"].to_i,
-  	  "name" => result["name"],
-  	  "location" => result["location"],
-  	  "image" => result["image"],
-  	  "rank" => result["rank"].to_i
+    results = DB.exec_prepared("create_post", [opts["name"], opts["location"], opts["image"], opts["rank"].to_i])
+	return {
+	  "id" => results.first["id"].to_i,
+  	  "name" => results.first["name"],
+  	  "location" => results.first["location"],
+  	  "image" => results.first["image"],
+  	  "rank" => results.first["rank"].to_i
     }
   end
 
