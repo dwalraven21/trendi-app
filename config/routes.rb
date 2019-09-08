@@ -8,4 +8,11 @@ Rails.application.routes.draw do
 	  post 'api/posts', to: 'posts#create'
 	  delete 'api/posts/:id', to: 'posts#delete'
 	  put 'api/posts/:id', to: 'posts#update'
+
+	  # users routes
+	  get 'users', to: 'users#index'
+	  get 'users/:id', to: 'users#show'
+	  post 'users', to: 'users#create'
+	  delete 'users/:id', to: 'users#delete'
+	  put 'users/:id', to: 'users#update'
 end
