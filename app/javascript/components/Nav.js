@@ -2,20 +2,13 @@
 // DEPENDENCIES
 // =============================
 // packages
-
 import React, { Component } from 'react';
-import USAMap from "react-usa-map";
 
 // =============================
 // COMPONENT CLASS
 // =============================
 class Nav extends React.Component {
-    mapHandler = (event) => {
-        let clickedState = event.target.dataset.name;
-        console.log(clickedState);
-        // console.log(event.target.dataset.name);
-        // alert(event.target.dataset.name);
-    };
+
   // ==============
   // RENDER
   // ==============
@@ -27,11 +20,6 @@ class Nav extends React.Component {
           <li className="add-trend" onClick={() => {this.props.handleView('addTrend')}}>Add A Trend
 		  <span className="arrow"> > </span></li>
         </ul>
-		{ this.props.view.page === 'viewTrends'?
-        <div className="App">
-            <USAMap onClick={this.mapHandler} />
-        </div>
-		: null}
       </nav>
     )
   }

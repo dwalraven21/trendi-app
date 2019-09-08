@@ -7,6 +7,7 @@ import React from 'react'
 // components
 import Post from './Post.js'
 import Form from './Form.js'
+import USAMap from "react-usa-map";
 
 // =============================
 // COMPONENT CLASS
@@ -120,6 +121,10 @@ class Main extends React.Component {
 		.catch(err => console.log(err))
 	}
 
+	mapHandler = (event) => {
+		alert(event.target.dataset.name);
+	};
+
 	// ==============
 	// LIFE CYCLES
 	// ==============
@@ -134,6 +139,11 @@ class Main extends React.Component {
 		return (
 			<main>
 			<h1>{this.props.view.pageTitle}</h1>
+			{ this.props.view.page === 'viewTrends'?
+			<div className="App">
+				<USAMap onClick={this.mapHandler} />
+			</div>
+			: null}
 
 			{ this.props.view.page === 'viewTrends'?
 			this.state.posts.map((postData, index) => (
