@@ -3,11 +3,12 @@
 // =============================
 // packages
 import React from 'react'
+import USAMap from "react-usa-map"
 
 // components
 import Post from './Post.js'
 import Form from './Form.js'
-import USAMap from "react-usa-map";
+
 
 // =============================
 // COMPONENT CLASS
