@@ -7,6 +7,7 @@ import React from 'react'
 // components
 import Post from './Post.js'
 import Form from './Form.js'
+import USAMap from "react-usa-map";
 
 // =============================
 // COMPONENT CLASS
@@ -120,6 +121,25 @@ class Main extends React.Component {
 		.catch(err => console.log(err))
 	}
 
+	mapHandler = (event) => {
+		// alert(event.target.dataset.name);
+		let location = event.target.dataset.name
+		console.log(location);
+		fetch(`/api/posts/${location}`, {
+			method: 'GET',
+			headers: {
+				'Accept': 'application/json, text/plain, */*',
+				'Content-Type': 'application/json'
+			}
+		})
+		.then(data => data.json())
+		.then(jData => {
+			this.setState({ posts: [jData] })
+			// console.log(jData);
+		})
+
+	};
+
 	// ==============
 	// LIFE CYCLES
 	// ==============
@@ -134,6 +154,11 @@ class Main extends React.Component {
 		return (
 			<main>
 			<h1>{this.props.view.pageTitle}</h1>
+			{ this.props.view.page === 'viewTrends'?
+			<div className="App">
+				<USAMap onClick={this.mapHandler} />
+			</div>
+			: null}
 
 			{ this.props.view.page === 'viewTrends'?
 			this.state.posts.map((postData, index) => (

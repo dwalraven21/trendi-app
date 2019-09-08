@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
   # show
   def show
-      render json: Post.find(params["id"])
+      render json: Post.find(params["location"])
   end
 
   # create

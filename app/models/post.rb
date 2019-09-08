@@ -53,22 +53,22 @@ end
   end
 
   # show
-  def self.find(id)
-    # query to find the posts
-    results = DB.exec("SELECT * FROM posts WHERE id=#{id};")
+  def self.find(location)
+    # query to find the posts (* can't remember if location should be in quotes.)
+    results = DB.exec("SELECT * FROM posts WHERE location='#{location}';")
     # if there are results, return the hash
     if !results.num_tuples.zero?
       return {
-		"id" => result["id"].to_i,
-	 	"name" => result["name"],
-	 	"location" => result["location"],
-	 	"image" => result["image"],
-	 	"rank" => result["rank"].to_i
+		"id" => results.first["id"].to_i,
+	 	"name" => results.first["name"],
+	 	"location" => results.first["location"],
+	 	"image" => results.first["image"],
+	 	"rank" => results.first["rank"].to_i
       }
     # if there are no results, return an error
     else
       return {
-        "error" => "no such post, check the id!"
+        "error" => "no results for this location!"
       }, status: 400
     end
   end
