@@ -53,9 +53,10 @@ end
   end
 
   # show
-  def self.find(id)
+  def self.find(clickedState)
     # query to find the posts
-    results = DB.exec("SELECT * FROM posts WHERE id=#{id};")
+    # results = DB.exec("SELECT * FROM posts WHERE id=#{id};")
+    results = DB.exec("SELECT * FROM posts WHERE location=#{clickedState};")
     # if there are results, return the hash
     if !results.num_tuples.zero?
       return {

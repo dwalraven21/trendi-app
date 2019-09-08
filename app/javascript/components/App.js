@@ -64,7 +64,7 @@ class App extends React.Component {
         pageTitle: pageTitle
       },
       formInputs: formInputs
-    })
+  })
   }
 
   // ==============

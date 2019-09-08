@@ -11,8 +11,10 @@ import USAMap from "react-usa-map";
 // =============================
 class Nav extends React.Component {
     mapHandler = (event) => {
-        console.log(event.target.dataset.name);
-        alert(event.target.dataset.name);
+        let clickedState = event.target.dataset.name;
+        console.log(clickedState);
+        // console.log(event.target.dataset.name);
+        // alert(event.target.dataset.name);
     };
   // ==============
   // RENDER
