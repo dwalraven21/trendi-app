@@ -11,8 +11,11 @@ Rails.application.routes.draw do
 
 	  # users routes
 	  get 'users', to: 'users#index'
-	  get 'users/:id', to: 'users#show'
 	  post 'users', to: 'users#create'
-	  delete 'users/:id', to: 'users#delete'
-	  put 'users/:id', to: 'users#update'
+
+	  # sessions routes
+	  get 'sessions', to: 'sessions#index'
+	  get 'sessions/:id', to: 'sessions#show'
+	  post 'sessions', to: 'sessions#create'
+	  delete 'sessions/:id', to: 'sessions#delete'
 end
