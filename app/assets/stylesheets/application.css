@@ -29,6 +29,7 @@
 /* * {
 	border: 1px solid gold;
 } */
+
 body {
   background: var(--dark-gray);
   font-family: var(--main-font);
@@ -54,7 +55,13 @@ h1 {
   flex-flow: column;
   justify-content: center;
   margin: 0 auto;
+}
 
+/* ================= */
+/*       Header      */
+/* ================= */
+header {
+    padding: 20px;
 }
 
 /* ================= */
@@ -65,6 +72,7 @@ nav {
 padding: 0px 20px;
 align-self: center;
 text-align: center;
+margin-bottom: 45px;
 }
 
 nav ul {
