@@ -58,23 +58,27 @@ class Main extends React.Component {
     })
     .catch(err => console.log(err))
   }
-  // updates a post
-	handleUpdate = (updateData) => {
-		fetch(`/api/posts/${updateData.id}`, {
-			body: JSON.stringify(updateData),
-			method: 'PUT',
-			headers: {
-				'Accept': 'application/json, text/plain, */*',
-				'Content-Type': 'application/json'
-		}
-	})
-	.then(updatedPost => {
-			// switch back to the home view
-			this.props.handleView('viewTrends')
-			// call this.fetchPosts to show the updated post immediately
-			this.fetchPosts()
+  // updates a post's rank
+	handleRankChange = (index, delta) => {
+		console.log(index);
+		this.setState( prevState => {
+			console.log(prevState);
+			// new array - copy of previous posts array
+			const updatedPosts = [ ...prevState.posts ];
+			// a copy of the post we are targeting
+			const updatedPost = updatedPosts[index];
+
+			// Update the target post's rank
+			updatedPost.rank += delta;
+
+			// Update the posts array with the target post's new rank
+			updatedPosts[index] = updatedPost;
+
+			// Update the new posts state without mutating the original state
+			return {
+				posts: updatedPosts
+			}
 		})
-	.catch(err => console.log(err))
 	}
 
 	// deletes a post
@@ -95,10 +99,6 @@ class Main extends React.Component {
 		.catch(err => console.log(err))
 	}
 
-	mapHandler = (event) => {
-		alert(event.target.dataset.name);
-	};
-
 	// ==============
 	// LIFE CYCLES
 	// ==============
@@ -113,15 +113,17 @@ class Main extends React.Component {
 		return (
 			<main>
 			<h1>{this.props.view.pageTitle}</h1>
-			
+
 			{ this.props.view.page === 'viewTrends'?
-			this.state.posts.map((postData) => (
+			this.state.posts.map((postData, index) => (
+
 			    <Post
 			      key={postData.id}
 			      postData={postData}
 			      handleView={this.props.handleView}
 			      handleDelete={this.handleDelete}
-				  handleUpdate={this.handleUpdate}
+				  index={index}
+				  handleRankChange={this.handleRankChange}
 			    />
 			  ))
 			  : <Form
