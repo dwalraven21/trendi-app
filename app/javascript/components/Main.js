@@ -122,7 +122,22 @@ class Main extends React.Component {
 	}
 
 	mapHandler = (event) => {
-		alert(event.target.dataset.name);
+		// alert(event.target.dataset.name);
+		let location = event.target.dataset.name
+		console.log(location);
+		fetch(`/api/posts/${location}`, {
+			method: 'GET',
+			headers: {
+				'Accept': 'application/json, text/plain, */*',
+				'Content-Type': 'application/json'
+			}
+		})
+		.then(data => data.json())
+		.then(jData => {
+			this.setState({ posts: [jData] })
+			// console.log(jData);
+		})
+
 	};
 
 	// ==============
