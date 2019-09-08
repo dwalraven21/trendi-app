@@ -53,16 +53,29 @@ h1 {
   display: flex;
   flex-flow: column;
   justify-content: center;
+<<<<<<< HEAD
   margin: 20px auto;
 
+=======
+  margin: 0 auto;
+>>>>>>> f5c230d79623c3c14863aa12e90f1b15e44875f6
 }
-
+/* ================= */
+/*       Header      */
+/* ================= */
+header {
+    margin: 20px 0 50px 0;
+}
 /* ================= */
 /*       Nav         */
 /* ================= */
 
 nav {
+<<<<<<< HEAD
 padding: 20px;
+=======
+margin-bottom: 60px;
+>>>>>>> f5c230d79623c3c14863aa12e90f1b15e44875f6
 align-self: center;
 text-align: center;
 margin: 10px auto;
