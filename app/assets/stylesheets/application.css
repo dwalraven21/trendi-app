@@ -26,7 +26,9 @@
 /* ================= */
 /*      GENERAL      */
 /* ================= */
-
+/* * {
+	border: 1px solid gold;
+} */
 body {
   background: var(--dark-gray);
   font-family: var(--main-font);
@@ -213,7 +215,7 @@ article {
 }
 
 article:nth-child(3n+2) {
-box-shadow: -15px -15px var(--orange);
+box-shadow: -15px -15px var(--grapefruit);
 }
 
 article:nth-child(3n+3) {
@@ -228,7 +230,7 @@ box-shadow: -15px -15px var(--golden);
 	cursor: pointer;
 	font-family: var(--main-font);
 	font-size: 50px;
-	width: 25%;
+	width: 15%;
 	margin: 10px auto;
 }
 
@@ -244,7 +246,19 @@ box-shadow: -15px -15px var(--golden);
 }
 
 .post-info {
-	width: 65%;
+	width: 55%;
+}
+
+.location-info {
+	width: 15%;
+
+}
+
+.location-info h2 {
+	font-family: var(--accent-font);
+    font-size: 30px;
+    color: var(--dark-gray);
+    margin: 5px 10px;
 }
 
 .post-name h1 {

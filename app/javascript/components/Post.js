@@ -36,6 +36,9 @@ class Post extends React.Component {
 			</div>
 			<button onClick={() => {this.props.handleDelete(this.props.postData.id)}}>Delete post</button>
 		</div>
+		<div className="location-info">
+		<h2>State:</h2> <h2>{this.props.postData.location}</h2>
+		</div>
 		</article>
 	  )
     }
