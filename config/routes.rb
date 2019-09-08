@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 	  # posts routes
 	  get 'api/posts', to: 'posts#index'
-	  get 'api/posts/:id', to: 'posts#show'
+	  get 'api/posts/:location', to: 'posts#show'
 	  post 'api/posts', to: 'posts#create'
 	  delete 'api/posts/:id', to: 'posts#delete'
 	  put 'api/posts/:id', to: 'posts#update'
