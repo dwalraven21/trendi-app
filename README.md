@@ -32,7 +32,7 @@ mapHandler = (event) => {
 	.then(data => data.json())
 	.then(jData => {
 		this.setState({ posts: [jData] })
-		
+
 	})
 
 };
@@ -62,6 +62,20 @@ mapHandler = (event) => {
 	  })
   }
 
+```
+Here's where the function is being called. When the user clicks the up arrow the handleRankChange function is being passed the item index and the integer 1, when the user clicks the down arrow it is passed -1, so the rank will decrease by 1.
+
+We also added a teenary
+```JavaScript
+<ul className="vote">
+	<li className="upvote" onClick={() => {this.props.handleRankChange(this.props.index, 1);}}>&#9650;</li>
+	{this.props.postData.rank > 0 ?
+	<li className="upvote">{this.props.postData.rank}
+	</li>
+	:<li className="downvote">{this.props.postData.rank}
+	</li>}
+	<li className="downvote" onClick={() => {this.props.handleRankChange(this.props.index, -1);}}>&#9660;</li>
+</ul>
 ```
 
 ## Improvements
