@@ -55,7 +55,8 @@ We can now add the delta to the current post's rank. To make sure this change pe
 		  // Update the target post's rank
 		  updatedPost.rank += delta;
 		
-		// Call the handleUpdate function and pass it the updated post. This ensures the data will be mutated.	
+		// Call the handleUpdate function and pass it the updated post. 
+		// This ensures the data will be mutated.	
 		  this.handleUpdate(updatedPost);
 	  })
   }
