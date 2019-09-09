@@ -64,7 +64,7 @@ class Form extends React.Component {
 					<option value="AL">Alabama</option>
 					<option value="AK">Alaska</option>
 					<option value="AZ">Arizona</option>
-					<option value="AK">Arkansas</option>
+					<option value="AR">Arkansas</option>
 					<option value="CA">California</option>
 					<option value="CO">Colorado</option>
 					<option value="CT">Connecticut</option>
