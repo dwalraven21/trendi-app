@@ -52,7 +52,7 @@ class App extends React.Component {
 		pageTitle = 'Add A New Trend'
 		break
 	  case 'viewTrends':
-		pageTitle = 'View Trends By State'
+		pageTitle = 'View Top Trend By State'
 		break
 	  default:
 		break
