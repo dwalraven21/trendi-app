@@ -89,16 +89,8 @@ class Main extends React.Component {
 			// Update the target post's rank
 			updatedPost.rank += delta;
 
-			// Update the posts array with the target post's new rank
-			updatedPosts[index] = updatedPost;
-
 			this.handleUpdate(updatedPost);
 
-			// Update the new posts state without mutating the original state
-			return {
-				posts: updatedPosts
-
-			}
 		})
 	}
 
@@ -125,7 +117,7 @@ class Main extends React.Component {
 	mapHandler = (event) => {
 		// alert(event.target.dataset.name);
 		let location = event.target.dataset.name
-		console.log(location);
+		// console.log(location);
 		fetch(`/api/posts/${location}`, {
 			method: 'GET',
 			headers: {
