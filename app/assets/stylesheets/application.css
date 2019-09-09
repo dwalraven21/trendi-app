@@ -151,22 +151,26 @@ label {
   font-family: var(--header-font);
   color: var(--golden);
 }
-input[type="text"], select {
-  display: inline-block;
+input[type="text"] {
+  /* display: inline-block; */
   padding: 10px;
-  width: 95%;
+  width: 90%;
   border: 1px solid whitesmoke;
   border-radius: 5px;
   margin-top: 10px;
+  min-width: 150px;
+
 }
 
 select {
+	margin-top: 10px;
 	height: 40px;
-	width: 100%;
+	width: 95%;
+	min-width: 180px;
 }
 
 #post-form {
-  width: 90%;
+  width: 100%;
 }
 input[type="submit"] {
   display: block;
@@ -175,10 +179,11 @@ input[type="submit"] {
   color: white;
   font-family: var(--accent-font);
   font-weight: 700;
-  font-size: 1em;
+  font-size: 2.5vw;
   text-transform: uppercase;
   width: 40%;
-  min-width: 300px;
+  min-width: 175px;
+  min-height: 40px;
   border-radius: 5px;
   padding: 10px;
   box-sizing: border-box;
