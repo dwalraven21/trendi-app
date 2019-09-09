@@ -17,13 +17,13 @@ Danielle Walraven - (https://github.com/dwalraven21)
 
 ## Challenges
 
-One of our biggest challenges was allowing users to click a state on the map to show only trends from that state.
+One of our biggest challenges was allowing users to click a state on the map to show only trends from that state. We acomplished this by creating a variable called location that would take the name of the event target (the clicked state). We then did a get request for all data where location matched this state. Finally we reset the posts in state to be the new list of only posts that were retrieved from this GET request. 
 
 ```JavaScript
 mapHandler = (event) => {
 
 	let location = event.target.dataset.name
-	console.log(location);
+	// console.log(location);
 	fetch(`/api/posts/${location}`, {
 		method: 'GET',
 		headers: {
@@ -40,9 +40,33 @@ mapHandler = (event) => {
 };
 
 ```
+Here is the show route we created in our posts model:
+
+```Ruby
+# show
+  def self.find(location)
+    # query to find the posts (* can't remember if location should be in quotes.)
+    results = DB.exec("SELECT * FROM posts WHERE location='#{location}';")
+    # if there are results, return the hash
+    if !results.num_tuples.zero?
+      return {
+		"id" => results.first["id"].to_i,
+	 	"name" => results.first["name"],
+	 	"location" => results.first["location"],
+	 	"image" => results.first["image"],
+	 	"rank" => results.first["rank"].to_i
+      }
+    # if there are no results, return an error
+    else
+      return {
+        "error" => "no results for this location!"
+      }, status: 400
+    end
+```
+
 Another challenge was allowing the users to update the rank of each item by upvoting or downvoting. Here is how we acomplished this. We created a function that takes for parameters the index of the item we are updating and the delta or difference we want the rank to change.
 In setState we created two variables: updatedPosts, to contain our current array and updatedPost, to contain the item we want to update.
-We can now add the delta to the current post's rank. To make sure this change persists and actually updates in the database, we called our hnadleUpdate function passing in the updatedPost.
+We can now add the delta to the current post's rank. To make sure this change persists and actually updates in the database, we called our handleUpdate function, passing in the updatedPost.
 
 ```JavaScript
   handleRankChange = (index, delta) => {
