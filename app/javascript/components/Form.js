@@ -33,6 +33,7 @@ class Form extends React.Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		this.props.handleCreate(this.state)
+		// window.location.reload()
 	}
 
 	// ==============
