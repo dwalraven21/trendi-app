@@ -16,7 +16,7 @@ class Nav extends React.Component {
     return (
       <nav>
         <ul>
-          <li className="view-trends" onClick={() => {window.location.reload()}}>View Top Trend By State  <span className="arrow"> > </span></li>
+          <li className="view-trends" onClick={() => {window.location.reload()}}>View Trends By State  <span className="arrow"> > </span></li>
           <li className="add-trend" onClick={() => {this.props.handleView('addTrend')}}>Add A Trend
 		  <span className="arrow"> > </span></li>
         </ul>
