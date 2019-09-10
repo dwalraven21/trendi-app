@@ -55,7 +55,7 @@ end
   # show
   def self.find(location)
     # query to find the posts
-    results = DB.exec("SELECT * FROM posts WHERE location='#{location}';")
+    results = DB.exec("SELECT * FROM posts WHERE location='#{location}' ORDER BY rank DESC;")
 	return results.map do |result|
       {
           "id" => result["id"].to_i,
