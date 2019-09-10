@@ -72,7 +72,7 @@ class Main extends React.Component {
 	  })
 	  .then(updatedPost => {
 		// call this.fetchPosts to show the updated post immediately
-		// this.fetchPosts()
+		this.fetchPosts()
 	  })
 	  .catch(err => console.log(err))
   }
@@ -94,7 +94,7 @@ class Main extends React.Component {
 
 			this.handleUpdate(updatedPost);
 
-			// Update the new posts state without mutating the original state
+
 			return {
 				posts: updatedPosts
 
