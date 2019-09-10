@@ -14,6 +14,7 @@ Danielle Walraven - (https://github.com/dwalraven21)
 ## User Stories
 
 ## Wireframes
+![](1.png)
 
 ## Challenges
 
