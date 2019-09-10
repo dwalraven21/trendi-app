@@ -9,10 +9,6 @@ Brooke Kennison - (https://github.com/brookelkennison)
 
 Danielle Walraven - (https://github.com/dwalraven21)
 
-## Inspiration
-
-## User Stories
-
 ## Wireframes
 ![Header](1.png)
 ![Map](2.png)
@@ -49,23 +45,18 @@ Here is the show route we created in our posts model:
 ```Ruby
 # show
   def self.find(location)
-    # query to find the posts (* can't remember if location should be in quotes.)
-    results = DB.exec("SELECT * FROM posts WHERE location='#{location}';")
-    # if there are results, return the hash
-    if !results.num_tuples.zero?
-      return {
-		"id" => results.first["id"].to_i,
-	 	"name" => results.first["name"],
-	 	"location" => results.first["location"],
-	 	"image" => results.first["image"],
-	 	"rank" => results.first["rank"].to_i
+    # query to find the posts
+    results = DB.exec("SELECT * FROM posts WHERE location='#{location}' ORDER BY rank DESC;")
+	return results.map do |result|
+      {
+          "id" => result["id"].to_i,
+          "name" => result["name"],
+          "location" => result["location"],
+          "image" => result["image"],
+	  "rank" => result["rank"].to_i
       }
-    # if there are no results, return an error
-    else
-      return {
-        "error" => "no results for this location!"
-      }, status: 400
     end
+  end
 ```
 
 Another challenge was allowing the users to update the rank of each item by upvoting or downvoting. Here is how we acomplished this. We created a function that takes for parameters the index of the item we are updating and the delta or difference we want the rank to change.
@@ -73,21 +64,24 @@ In setState we created two variables: updatedPosts, to contain our current array
 We can now add the delta to the current post's rank. To make sure this change persists and actually updates in the database, we called our handleUpdate function, passing in the updatedPost.
 
 ```JavaScript
-  handleRankChange = (index, delta) => {
-	  this.setState( prevState => {
-		  // new array - copy of previous posts array
-		  const updatedPosts = [ ...prevState.posts ];
-		  // a copy of the post we are targeting
-		  const updatedPost = updatedPosts[index];
+ handleRankChange = (index, delta) => {
+	this.setState( prevState => {
+		// console.log(prevState);
+		// new array - copy of previous posts array
+		const updatedPosts = [ ...prevState.posts ];
+		// a copy of the post we are targeting
+		const updatedPost = updatedPosts[index];
 
-		  // Update the target post's rank
-		  updatedPost.rank += delta;
-		
-		// Call the handleUpdate function and pass it the updated post. 
-		// This ensures the data will be mutated.	
-		  this.handleUpdate(updatedPost);
-	  })
-  }
+		// Update the target post's rank
+		updatedPost.rank += delta;
+
+		// Update the posts array with the target post's new rank
+		updatedPosts[index] = updatedPost;
+
+		this.handleUpdate(updatedPost);
+
+	})
+}
 
 ```
 Here's our handleUpdate function for reference.
