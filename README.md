@@ -9,10 +9,6 @@ Brooke Kennison - (https://github.com/brookelkennison)
 
 Danielle Walraven - (https://github.com/dwalraven21)
 
-## Inspiration
-
-## User Stories
-
 ## Wireframes
 ![Header](1.png)
 ![Map](2.png)
