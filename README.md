@@ -53,7 +53,7 @@ Here is the show route we created in our posts model:
           "name" => result["name"],
           "location" => result["location"],
           "image" => result["image"],
-		  "rank" => result["rank"].to_i
+	  "rank" => result["rank"].to_i
       }
     end
   end
