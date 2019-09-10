@@ -65,28 +65,28 @@ We can now add the delta to the current post's rank. To make sure this change pe
 
 ```JavaScript
  handleRankChange = (index, delta) => {
-		this.setState( prevState => {
-			// console.log(prevState);
-			// new array - copy of previous posts array
-			const updatedPosts = [ ...prevState.posts ];
-			// a copy of the post we are targeting
-			const updatedPost = updatedPosts[index];
+	this.setState( prevState => {
+		// console.log(prevState);
+		// new array - copy of previous posts array
+		const updatedPosts = [ ...prevState.posts ];
+		// a copy of the post we are targeting
+		const updatedPost = updatedPosts[index];
 
-			// Update the target post's rank
-			updatedPost.rank += delta;
+		// Update the target post's rank
+		updatedPost.rank += delta;
 
-			// Update the posts array with the target post's new rank
-			updatedPosts[index] = updatedPost;
+		// Update the posts array with the target post's new rank
+		updatedPosts[index] = updatedPost;
 
-			this.handleUpdate(updatedPost);
+		this.handleUpdate(updatedPost);
 
-			// Update the new posts state without mutating the original state
-			return {
-				posts: updatedPosts
+		// Update the new posts state without mutating the original state
+		return {
+			posts: updatedPosts
 
 			}
-		})
-	}
+	})
+}
 
 ```
 Here's our handleUpdate function for reference.
