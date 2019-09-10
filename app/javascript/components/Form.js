@@ -55,11 +55,11 @@ class Form extends React.Component {
 	    return (
 			<form onSubmit={this.handleSubmit}>
 				<label>
-		          Trend
+		          Trend <br/>
 		          <input type="text" placeholder="trend name" id="name" value={this.state.name} onChange={this.handleChange}/>
 		        </label>
 				<label>
-		          Select Your State
+		          Select Your State<br/>
 		          <select name="state" id="location" value={this.state.location} onChange={this.handleChange}>
 					<option value="AL">Alabama</option>
 					<option value="AK">Alaska</option>
@@ -115,7 +115,7 @@ class Form extends React.Component {
 				  </select>
 				</label>
 				<label>
-		          Image of Trend
+		          Image of Trend <br/>
 		          <input type="text" placeholder="URL for trend image" id="image" value={this.state.image} onChange={this.handleChange}/>
 		        </label>
 				<input type="submit" value="submit"/>
