@@ -80,11 +80,6 @@ We can now add the delta to the current post's rank. To make sure this change pe
 
 		this.handleUpdate(updatedPost);
 
-		// Update the new posts state without mutating the original state
-		return {
-			posts: updatedPosts
-
-			}
 	})
 }
 
