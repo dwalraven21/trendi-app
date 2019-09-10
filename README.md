@@ -14,6 +14,10 @@ Danielle Walraven - (https://github.com/dwalraven21)
 ## User Stories
 
 ## Wireframes
+![Header](1.png)
+![Map](2.png)
+![All Trends](3.png)
+![By State](4.png)
 
 ## Challenges
 
