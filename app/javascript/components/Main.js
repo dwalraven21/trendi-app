@@ -135,7 +135,7 @@ class Main extends React.Component {
 		})
 		.then(data => data.json())
 		.then(jData => {
-			this.setState({ posts: [jData] })
+			this.setState({ posts: jData })
 			// console.log(jData);
 		})
 
